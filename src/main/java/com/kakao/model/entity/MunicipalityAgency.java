@@ -9,7 +9,7 @@ import javax.persistence.*;
  */
 
 @Data
-@Entity(name="municipalityAgency")
+@Entity
 public class MunicipalityAgency {
 
     @Id
