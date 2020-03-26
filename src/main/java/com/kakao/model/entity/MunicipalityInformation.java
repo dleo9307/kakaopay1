@@ -31,7 +31,7 @@ public class MunicipalityInformation {
     private String usage;
 
     @Column(nullable = false)
-    private String limit;
+    private String limitValue;
 
     @Column(nullable = false)
     private double rate;
