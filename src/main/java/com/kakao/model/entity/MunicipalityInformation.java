@@ -24,8 +24,9 @@ public class MunicipalityInformation {
     @Column(nullable = false)
     private String regionCode;
 
-    @Column(nullable = false)
+    @Column(length = 1000, nullable = false)
     private String target;
+
 
     @Column(nullable = false)
     private String usage;
@@ -34,7 +35,7 @@ public class MunicipalityInformation {
     private String limitValue;
 
     @Column(nullable = false)
-    private double rate;
+    private String rate;
 
     @Column(nullable = false)
     private String institute;
