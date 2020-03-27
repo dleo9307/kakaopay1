@@ -1,4 +1,4 @@
-package com.kakao.model.entity;
+package com.kakao.domain.municipalityAgency;
 
 import lombok.Data;
 

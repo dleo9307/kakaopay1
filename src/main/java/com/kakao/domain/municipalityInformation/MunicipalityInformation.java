@@ -1,5 +1,6 @@
-package com.kakao.model.entity;
+package com.kakao.domain.municipalityInformation;
 
+import com.kakao.domain.municipalityAgency.MunicipalityAgency;
 import lombok.Data;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -27,7 +28,6 @@ public class MunicipalityInformation {
     @Column(length = 1000, nullable = false)
     private String target;
 
-
     @Column(nullable = false)
     private String usage;
 
@@ -52,5 +52,9 @@ public class MunicipalityInformation {
 
     @UpdateTimestamp
     private LocalDateTime updateTimeAt;
+
+    @ManyToOne
+    @JoinColumn(name = "municipalityAgency_regionCode")
+    private MunicipalityAgency municipalityAgency;
 
 }
