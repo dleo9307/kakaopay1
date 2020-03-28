@@ -13,12 +13,9 @@ import javax.persistence.*;
 public class MunicipalityAgency {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(nullable = false)
+    private String regionCode;
 
     @Column(nullable = false)
     private String region;
-
-    @Column(nullable = false)
-    private String regionCode;
 }

@@ -1,6 +1,5 @@
 package com.kakao.domain.municipalityInformation;
 
-import com.kakao.Test1ApplicationTests;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,7 +10,7 @@ import java.time.LocalDateTime;
  * Created by dleo9 on 2020-03-27.
  */
 @SpringBootTest
-class MunicipalityInformationRepositoryTest extends Test1ApplicationTests {
+class MunicipalityInformationRepositoryTest{
 
     @Autowired
     private MunicipalityInformationRepository municipalityInformationRepository;
@@ -29,7 +28,8 @@ class MunicipalityInformationRepositoryTest extends Test1ApplicationTests {
         municipalityInformation.setMgmt("경남지점");
         municipalityInformation.setReception("경상남도 소재 지역");
 
-        MunicipalityInformation TestMunicipalityInformation1 = municipalityInformationRepository.save(municipalityInformation);
-        System.out.println(TestMunicipalityInformation1);
+        municipalityInformationRepository.save(municipalityInformation);
+
+        System.out.println(municipalityInformationRepository.findAll());
     }
 }

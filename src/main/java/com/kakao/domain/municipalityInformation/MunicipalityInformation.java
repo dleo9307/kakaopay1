@@ -46,7 +46,6 @@ public class MunicipalityInformation {
     @Column(nullable = false)
     private String reception;
 
-    @Column(nullable = false)
     @CreationTimestamp
     private LocalDateTime createdTimeAt;
 
