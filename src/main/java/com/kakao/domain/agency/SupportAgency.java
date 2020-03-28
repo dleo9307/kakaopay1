@@ -1,7 +1,6 @@
-package com.kakao.domain.municipalityAgency;
+package com.kakao.domain.agency;
 
 import lombok.Data;
-
 import javax.persistence.*;
 
 /**
@@ -10,7 +9,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-public class MunicipalityAgency {
+public class SupportAgency {
 
     @Id
     @Column(nullable = false)
@@ -18,4 +17,5 @@ public class MunicipalityAgency {
 
     @Column(nullable = false)
     private String region;
+
 }

@@ -1,6 +1,6 @@
-package com.kakao.domain.municipalityInformation;
+package com.kakao.domain.information;
 
-import com.kakao.domain.municipalityAgency.MunicipalityAgency;
+import com.kakao.domain.agency.SupportAgency;
 import lombok.Data;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-public class MunicipalityInformation {
+public class SupportInform {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,7 +53,7 @@ public class MunicipalityInformation {
     private LocalDateTime updateTimeAt;
 
     @ManyToOne
-    @JoinColumn(name = "municipalityAgency_regionCode")
-    private MunicipalityAgency municipalityAgency;
+    @JoinColumn(name = "supportAgency_regionCode", nullable = false)
+    private SupportAgency supportAgency;
 
 }
