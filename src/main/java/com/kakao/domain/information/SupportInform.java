@@ -22,9 +22,6 @@ public class SupportInform {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String regionCode;
-
     @Column(length = 1000, nullable = false)
     private String target;
 
@@ -54,6 +51,5 @@ public class SupportInform {
 
     @ManyToOne
     @JoinColumn(name = "supportAgency_regionCode", nullable = false)
-    private SupportAgency supportAgency;
-
+    SupportAgency supportAgency;
 }

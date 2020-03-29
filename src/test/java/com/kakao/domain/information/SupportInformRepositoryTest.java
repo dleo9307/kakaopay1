@@ -34,7 +34,6 @@ public class SupportInformRepositoryTest {
 
         //Inform create 부분
         SupportInform supportInform = new SupportInform();
-        supportInform.setRegionCode("reg1234");
         supportInform.setCreatedTimeAt(LocalDateTime.now());
         supportInform.setTarget("중소기업 청년전세대출");
         supportInform.setUsage("운전 및 시설");
@@ -49,4 +48,27 @@ public class SupportInformRepositoryTest {
         System.out.println(supportInformRepository.findAll());
         System.out.println(supportAgencyRepository.findAll());
     }
+
+    @Test
+    void updateCase1(){
+        SupportAgency supportAgency = supportAgencyRepository.findAll().get(0);
+        supportAgency.setRegion("TEST");
+        supportAgencyRepository.save(supportAgency);
+
+        System.out.println(supportAgencyRepository.findAll());
+        System.out.println(supportInformRepository.findAll());
+    }
+
+    @Test
+    void updateCase2(){
+        SupportInform supportInform = supportInformRepository.findAll().get(0);
+
+        SupportAgency supportAgency = supportInform.getSupportAgency();
+        supportAgency.setRegion("TEST2");
+        supportAgencyRepository.save(supportAgency);
+
+        System.out.println(supportAgencyRepository.findAll());
+        System.out.println(supportInformRepository.findAll());
+    }
+
 }

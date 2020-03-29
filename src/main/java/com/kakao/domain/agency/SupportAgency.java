@@ -17,5 +17,4 @@ public class SupportAgency {
 
     @Column(nullable = false)
     private String region;
-
 }
