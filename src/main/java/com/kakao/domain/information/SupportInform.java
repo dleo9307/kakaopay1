@@ -22,7 +22,7 @@ public class SupportInform {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 1000, nullable = false)
+    @Column(nullable = false, length = 1000)
     private String target;
 
     @Column(nullable = false)
@@ -52,4 +52,11 @@ public class SupportInform {
     @ManyToOne
     @JoinColumn(name = "supportAgency_regionCode", nullable = false)
     SupportAgency supportAgency;
+
+    @Transient
+    private String region;
+
+    public String getRegion(){
+        return this.supportAgency.getRegion();
+    }
 }

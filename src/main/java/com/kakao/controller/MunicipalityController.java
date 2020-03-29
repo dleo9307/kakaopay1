@@ -5,6 +5,7 @@ package com.kakao.controller;
  */
 
 import com.kakao.domain.information.SupportInform;
+import com.kakao.domain.information.SupportInformMapping;
 import com.kakao.service.DataInsertService;
 import com.kakao.service.MunicipalityService;
 

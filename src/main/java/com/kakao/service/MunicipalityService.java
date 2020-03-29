@@ -1,6 +1,7 @@
 package com.kakao.service;
 
 import com.kakao.domain.information.SupportInform;
+import com.kakao.domain.information.SupportInformMapping;
 import com.kakao.domain.information.SupportInformRepository;
 import org.springframework.stereotype.Service;
 
