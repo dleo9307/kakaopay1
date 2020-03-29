@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * Created by dleo9 on 2020-03-27.
  */
 @SpringBootTest
-public class SupportInformRepositoryTest {
+class SupportInformRepositoryTest {
 
     @Autowired
     private SupportAgencyRepository supportAgencyRepository;

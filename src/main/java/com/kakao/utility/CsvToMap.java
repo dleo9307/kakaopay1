@@ -14,7 +14,6 @@ import java.util.Map;
 
 public class CsvToMap {
     private String path;
-    private CSVReader reader;
     private List<Map> mapList;
 
     public CsvToMap(String path) {
@@ -29,7 +28,7 @@ public class CsvToMap {
      */
     public void setMapList(long startLine, String[] header) {
         try {
-            reader = new CSVReader(new FileReader(path));
+            CSVReader reader = new CSVReader(new FileReader(path));
             String[] nextLine;
 
             while ((nextLine = reader.readNext()) != null) {

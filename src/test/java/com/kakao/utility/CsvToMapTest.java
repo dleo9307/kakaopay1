@@ -6,7 +6,7 @@ import org.springframework.core.io.ClassPathResource;
 import java.util.List;
 import java.util.Map;
 
-public class CsvToMapTest {
+class CsvToMapTest {
     private CsvToMap csvToMap;
     private ClassPathResource resource;
     private List<Map> testList;

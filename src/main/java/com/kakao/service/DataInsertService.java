@@ -7,7 +7,6 @@ import com.kakao.domain.information.SupportInformRepository;
 import com.kakao.utility.CsvHeaderInform;
 import com.kakao.utility.CsvToMap;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
@@ -20,33 +19,32 @@ import java.util.Map;
 
 @Service
 public class DataInsertService {
-    @Autowired
-    private SupportInformRepository supportInformRepository;
 
-    @Autowired
-    private SupportAgencyRepository supportAgencyRepository;
+    private final SupportInformRepository supportInformRepository;
+    private final SupportAgencyRepository supportAgencyRepository;
 
-    private CsvToMap csvToMap;
-    private List<SupportAgency> supportAgencies;
-    private List<SupportInform> supportInforms;
-    private Map<String, SupportAgency> uniqRegionCode;
+    public DataInsertService(SupportAgencyRepository supportAgencyRepository,SupportInformRepository supportInformRepository){
+        this.supportInformRepository = supportInformRepository;
+        this.supportAgencyRepository = supportAgencyRepository;
+    }
 
-    public boolean insertData() {
+
+    public void insertData() {
         try {
-            csvToMap = new CsvToMap(new ClassPathResource("./data/사전과제1.csv").getFile().toString());
+            CsvToMap csvToMap = new CsvToMap(new ClassPathResource("./data/사전과제1.csv").getFile().toString());
             csvToMap.setMapList(2, CsvHeaderInform.header);
 
             List<Map> CsvObjList = csvToMap.getMapList();
-            uniqRegionCode = new HashMap<>();
 
-            supportInforms = new ArrayList<>();
-            supportAgencies = new ArrayList<>();
+            Map<String, SupportAgency> uniqRegionCode = new HashMap<>();
+            List<SupportInform> supportInforms = new ArrayList<>();
+            List<SupportAgency> supportAgencies = new ArrayList<>();
 
             int uniqCount = 1;
             for (Map obj : CsvObjList) {
                 SupportInform supportInform = new SupportInform();
 
-                if (!uniqRegionCode.containsKey(obj.get("region"))) {
+                if (!uniqRegionCode.containsKey(obj.get("region").toString())) {
                     SupportAgency supportAgency = new SupportAgency();
                     supportAgency.setRegion(obj.get("region").toString());
                     supportAgency.setRegionCode("reg" + uniqCount);
@@ -55,7 +53,7 @@ public class DataInsertService {
                     uniqCount++;
                 }
 
-                supportInform.setSupportAgency(uniqRegionCode.get(obj.get("region")));
+                supportInform.setSupportAgency(uniqRegionCode.get(obj.get("region").toString()));
                 supportInform.setId(Long.parseLong(obj.get("id").toString()));
                 supportInform.setTarget(obj.get("target").toString());
                 supportInform.setUsage(obj.get("usage").toString());
@@ -69,10 +67,8 @@ public class DataInsertService {
             }
             supportAgencyRepository.saveAll(supportAgencies);
             supportInformRepository.saveAll(supportInforms);
-            return true;
         } catch (IOException e) {
             System.out.println("IO ERROR : " + e.getMessage());
-            return false;
         }
     }
 }

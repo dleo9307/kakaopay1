@@ -1,9 +1,7 @@
-package com.kakao.domain.agency;
+package com.kakao.controller;
 
 import org.springframework.boot.test.context.SpringBootTest;
 
-
-
 @SpringBootTest
-class SupportAgencyRepositoryTest {
+class MunicipalityControllerTest {
 }
