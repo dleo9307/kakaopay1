@@ -36,7 +36,8 @@ class SupportInformRepositoryTest {
         supportInform.setInstitute("경상남도");
         supportInform.setMgmt("경남지점");
         supportInform.setReception("경상남도 소재 지역");
-        supportInform.setSupportAgency(supportAgency);
+//        supportInform.setSupportAgency(supportAgency);
+        supportInform.setRegionCode(supportAgency.getRegionCode());
         supportInformRepository.save(supportInform);
 
         System.out.println(supportInformRepository.findAll());
@@ -55,16 +56,16 @@ class SupportInformRepositoryTest {
     }
 
 
-    @Test
-    void updateCase2(){
-        SupportInform supportInform = supportInformRepository.findAll().get(0);
-
-        SupportAgency supportAgency = supportInform.getSupportAgency();
-        supportAgency.setRegion("TEST2");
-        supportAgencyRepository.save(supportAgency);
-
-        System.out.println(supportAgencyRepository.findAll());
-        System.out.println(supportInformRepository.findAll());
-    }
+//    @Test
+//    void updateCase2(){
+//        SupportInform supportInform = supportInformRepository.findAll().get(0);
+//
+//        SupportAgency supportAgency = supportInform.getSupportAgency();
+//        supportAgency.setRegion("TEST2");
+//        supportAgencyRepository.save(supportAgency);
+//
+//        System.out.println(supportAgencyRepository.findAll());
+//        System.out.println(supportInformRepository.findAll());
+//    }
 
 }

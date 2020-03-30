@@ -35,7 +35,7 @@ public class MunicipalityController {
             return new ResponseEntity("Already inserted", HttpStatus.BAD_REQUEST);
         }else{
             dataInsertService.insertData();
-            return new ResponseEntity("success", HttpStatus.NO_CONTENT);
+            return new ResponseEntity("success", HttpStatus.OK);
         }
     }
 

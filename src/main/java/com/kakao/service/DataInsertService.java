@@ -53,7 +53,8 @@ public class DataInsertService {
                     uniqCount++;
                 }
 
-                supportInform.setSupportAgency(uniqRegionCode.get(obj.get("region").toString()));
+//                supportInform.setSupportAgency(uniqRegionCode.get(obj.get("region").toString()));
+                supportInform.setRegionCode(uniqRegionCode.get(obj.get("region")).getRegionCode());
                 supportInform.setId(Long.parseLong(obj.get("id").toString()));
                 supportInform.setTarget(obj.get("target").toString());
                 supportInform.setUsage(obj.get("usage").toString());
