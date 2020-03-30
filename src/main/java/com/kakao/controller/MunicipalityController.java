@@ -9,6 +9,8 @@ import com.kakao.domain.information.SupportInformMapping;
 import com.kakao.service.DataInsertService;
 import com.kakao.service.MunicipalityService;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,17 +30,22 @@ public class MunicipalityController {
 
     //CSV 데이터셋을 데이터베이스에 저장하는 API
     @GetMapping(path="/saveDataSet")
-    public void saveDataSet(){
-        dataInsertService.insertData();
+    public ResponseEntity<String> saveDataSet(){
+        if(municipalityService.findAll().size() > 0){
+            return new ResponseEntity("Already inserted", HttpStatus.BAD_REQUEST);
+        }else{
+            dataInsertService.insertData();
+            return new ResponseEntity("success", HttpStatus.NO_CONTENT);
+        }
     }
 
     @GetMapping(path = "/findAll")
-    public List<SupportInform> findAll(){
-        return municipalityService.findAll();
+    public ResponseEntity<List> findAll(){
+        return new ResponseEntity(municipalityService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping(path = "/findPretty")
-    public List<SupportInformMapping> findPretty(){
-        return municipalityService.findPretty();
+    public ResponseEntity<List> findPretty(){
+        return new ResponseEntity(municipalityService.findPretty(), HttpStatus.OK);
     }
 }
