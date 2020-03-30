@@ -10,11 +10,9 @@ import com.kakao.service.MunicipalityService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -50,7 +48,7 @@ public class MunicipalityController {
 
     //지자체 이름으로 목록을 조회하는 API
     @GetMapping(path = "/findByRegion")
-    public ResponseEntity<SupportInform> findByRegion(@RequestParam(value = "region", required = true) String region){
-        return new ResponseEntity(municipalityService.findByRegion(region), HttpStatus.OK);
+    public ResponseEntity<SupportInform> findByRegion(@RequestParam HashMap<String,Object> req){
+        return new ResponseEntity(municipalityService.findByRegion(req.get("region").toString()), HttpStatus.OK);
     }
 }
