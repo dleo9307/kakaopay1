@@ -23,7 +23,7 @@ public class SupportInform {
     private Long id;
 
     @Column(nullable = false, length = 1000)
-    private String target;
+    private String targetValue;
 
     @Column(nullable = false)
     private String usage;

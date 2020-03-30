@@ -56,7 +56,7 @@ public class DataInsertService {
 //                supportInform.setSupportAgency(uniqRegionCode.get(obj.get("region").toString()));
                 supportInform.setRegionCode(uniqRegionCode.get(obj.get("region")).getRegionCode());
                 supportInform.setId(Long.parseLong(obj.get("id").toString()));
-                supportInform.setTarget(obj.get("target").toString());
+                supportInform.setTargetValue(obj.get("target").toString());
                 supportInform.setUsage(obj.get("usage").toString());
                 supportInform.setLimitValue(obj.get("limitValue").toString());
                 supportInform.setRate(obj.get("rate").toString());

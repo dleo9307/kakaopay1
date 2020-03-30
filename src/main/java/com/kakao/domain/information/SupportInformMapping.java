@@ -1,7 +1,7 @@
 package com.kakao.domain.information;
 
 public interface SupportInformMapping {
-    String getTarget();
+    String getTargetValue();
     String getUsage();
     String getLimitValue();
     String getRate();

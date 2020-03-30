@@ -29,7 +29,7 @@ class SupportInformRepositoryTest {
         supportAgencyRepository.save(supportAgency);
 
         SupportInform supportInform = new SupportInform();
-        supportInform.setTarget("중소기업 청년전세대출");
+        supportInform.setTargetValue("중소기업 청년전세대출");
         supportInform.setUsage("운전 및 시설");
         supportInform.setLimitValue("1억이내");
         supportInform.setRate("3%~5%");
