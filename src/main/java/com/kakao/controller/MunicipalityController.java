@@ -36,4 +36,9 @@ public class MunicipalityController {
     public List<SupportInform> findAll(){
         return municipalityService.findAll();
     }
+
+    @GetMapping(path = "/findPretty")
+    public List<SupportInformMapping> findPretty(){
+        return municipalityService.findPretty();
+    }
 }

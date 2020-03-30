@@ -16,7 +16,6 @@ class DataInsertServiceTest {
     @Test
     void csvInsert(){
         dataInsertService.insertData();
-
         System.out.println(supportInformRepository.findAll());
     }
 }

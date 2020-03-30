@@ -20,4 +20,8 @@ public class MunicipalityService {
         return supportInformRepository.findAll();
     }
 
+    public List<SupportInformMapping> findPretty(){
+        return supportInformRepository.findAllBy();
+    }
+
 }
