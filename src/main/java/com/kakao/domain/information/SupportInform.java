@@ -49,16 +49,7 @@ public class SupportInform {
     @UpdateTimestamp
     private LocalDateTime updateTimeAt;
 
-    @Column(nullable = false)
-    private String regionCode;
-    /*@ManyToOne
+    @ManyToOne
     @JoinColumn(name = "supportAgency_regionCode", nullable = false)
     SupportAgency supportAgency;
-
-    @Transient
-    private String region;
-
-    public String getRegion(){
-        return this.supportAgency.getRegion();
-    }*/
 }

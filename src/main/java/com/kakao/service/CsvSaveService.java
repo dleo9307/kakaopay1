@@ -18,12 +18,12 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class DataInsertService {
+public class CsvSaveService {
 
     private final SupportInformRepository supportInformRepository;
     private final SupportAgencyRepository supportAgencyRepository;
 
-    public DataInsertService(SupportAgencyRepository supportAgencyRepository,SupportInformRepository supportInformRepository){
+    public CsvSaveService(SupportAgencyRepository supportAgencyRepository, SupportInformRepository supportInformRepository){
         this.supportInformRepository = supportInformRepository;
         this.supportAgencyRepository = supportAgencyRepository;
     }
@@ -53,8 +53,7 @@ public class DataInsertService {
                     uniqCount++;
                 }
 
-//                supportInform.setSupportAgency(uniqRegionCode.get(obj.get("region").toString()));
-                supportInform.setRegionCode(uniqRegionCode.get(obj.get("region")).getRegionCode());
+                supportInform.setSupportAgency(uniqRegionCode.get(obj.get("region").toString()));
                 supportInform.setId(Long.parseLong(obj.get("id").toString()));
                 supportInform.setTargetValue(obj.get("target").toString());
                 supportInform.setUsage(obj.get("usage").toString());

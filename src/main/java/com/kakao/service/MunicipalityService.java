@@ -1,7 +1,6 @@
 package com.kakao.service;
 
 import com.kakao.domain.information.SupportInform;
-import com.kakao.domain.information.SupportInformMapping;
 import com.kakao.domain.information.SupportInformRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +19,8 @@ public class MunicipalityService {
         return supportInformRepository.findAll();
     }
 
-    public List<SupportInformMapping> findPretty(){
-        return supportInformRepository.findAllBy();
+    public SupportInform findByRegion(String region){
+        return supportInformRepository.findBySupportAgencyRegion(region);
     }
 
 }

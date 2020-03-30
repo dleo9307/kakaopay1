@@ -1,6 +1,6 @@
 package com.kakao.service;
 
-import com.kakao.domain.information.SupportInformMapping;
+import com.kakao.domain.information.SupportInform;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,12 +13,12 @@ class MunicipalityServiceTest {
     private MunicipalityService municipalityService;
 
     @Autowired
-    private DataInsertService dataInsertService;
+    private CsvSaveService csvSaveService;
 
     @Test
     void find(){
-        dataInsertService.insertData();
-        List<SupportInformMapping> supportInformMappings = municipalityService.findPretty();
+        csvSaveService.insertData();
+        List<SupportInform> supportInformMappings = municipalityService.findAll();
         System.out.println(supportInformMappings);
     }
 }

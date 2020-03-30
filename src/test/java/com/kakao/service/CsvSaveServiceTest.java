@@ -6,16 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DataInsertServiceTest {
+class CsvSaveServiceTest {
     @Autowired
-    private DataInsertService dataInsertService;
+    private CsvSaveService csvSaveService;
 
     @Autowired
     SupportInformRepository supportInformRepository;
 
     @Test
     void csvInsert(){
-        dataInsertService.insertData();
+        csvSaveService.insertData();
         System.out.println(supportInformRepository.findAll());
     }
 }
