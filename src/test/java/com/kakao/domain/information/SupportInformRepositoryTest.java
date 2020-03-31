@@ -68,6 +68,17 @@ class SupportInformRepositoryTest {
     }
 
     @Test
+    void updateCase3(){
+        create();
+        SupportInform supportInform = supportInformRepository.findAll().get(0);
+        SupportAgency supportAgency = supportInform.getSupportAgency();
+        supportAgency.setRegion("바뀐지역");
+        supportAgencyRepository.save(supportAgency);
+        supportInformRepository.save(supportInform);
+        System.out.println(supportInformRepository.findAll());
+    }
+
+    @Test
     void findByRegion(){
         System.out.println(supportInformRepository.findBySupportAgencyRegion("TEST2"));
     }

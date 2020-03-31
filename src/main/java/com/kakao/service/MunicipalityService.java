@@ -1,5 +1,6 @@
 package com.kakao.service;
 
+import com.kakao.domain.agency.SupportAgencyRepository;
 import com.kakao.domain.information.SupportInform;
 import com.kakao.domain.information.SupportInformRepository;
 import org.springframework.stereotype.Service;
@@ -10,9 +11,11 @@ import java.util.List;
 public class MunicipalityService {
 
     private final SupportInformRepository supportInformRepository;
+    private final SupportAgencyRepository supportAgencyRepository;
 
-    public MunicipalityService(SupportInformRepository supportInformRepository){
+    public MunicipalityService(SupportInformRepository supportInformRepository, SupportAgencyRepository supportAgencyRepository){
         this.supportInformRepository = supportInformRepository;
+        this.supportAgencyRepository = supportAgencyRepository;
     }
 
     public List<SupportInform> findAll(){
@@ -25,7 +28,6 @@ public class MunicipalityService {
 
     public SupportInform updateByRegion(final String region, final SupportInform reqObj){
         SupportInform supportInform = findByRegion(region);
-
         supportInform.setTargetValue(reqObj.getTargetValue());
         supportInform.setSupportAgency(reqObj.getSupportAgency());
         supportInform.setMgmt(reqObj.getMgmt());
@@ -34,8 +36,8 @@ public class MunicipalityService {
         supportInform.setLimitValue(reqObj.getLimitValue());
         supportInform.setUsage(reqObj.getUsage());
         supportInform.setReception(reqObj.getReception());
-        supportInform.setSupportAgency(reqObj.getSupportAgency());
 
+        if(reqObj.getSupportAgency() != null) supportAgencyRepository.save(reqObj.getSupportAgency());
         return supportInformRepository.save(supportInform);
     }
 
