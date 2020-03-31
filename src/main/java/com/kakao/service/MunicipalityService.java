@@ -28,16 +28,16 @@ public class MunicipalityService {
 
     public SupportInform updateByRegion(final String region, final SupportInform reqObj){
         SupportInform supportInform = findByRegion(region);
-        supportInform.setTargetValue(reqObj.getTargetValue());
-        supportInform.setSupportAgency(reqObj.getSupportAgency());
-        supportInform.setMgmt(reqObj.getMgmt());
-        supportInform.setInstitute(reqObj.getInstitute());
-        supportInform.setRate(reqObj.getRate());
-        supportInform.setLimitValue(reqObj.getLimitValue());
-        supportInform.setUsage(reqObj.getUsage());
-        supportInform.setReception(reqObj.getReception());
+        if(supportInform == null) return null;
 
+        if(reqObj.getTargetValue() != null) supportInform.setTargetValue(reqObj.getTargetValue());
         if(reqObj.getSupportAgency() != null) supportAgencyRepository.save(reqObj.getSupportAgency());
+        if(reqObj.getMgmt() != null) supportInform.setMgmt(reqObj.getMgmt());
+        if(reqObj.getInstitute() != null) supportInform.setInstitute(reqObj.getInstitute());
+        if(reqObj.getRate() != null) supportInform.setRate(reqObj.getRate());
+        if(reqObj.getLimitValue() != null) supportInform.setLimitValue(reqObj.getLimitValue());
+        if(reqObj.getUsage() != null) supportInform.setUsage(reqObj.getUsage());
+        if(reqObj.getReception() != null) supportInform.setReception(reqObj.getReception());
         return supportInformRepository.save(supportInform);
     }
 
